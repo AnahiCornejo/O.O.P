@@ -1,2 +1,2 @@
 # O.O.P
-TITULO: Paradigma de la OOP
+ Paradigma de la OOP
