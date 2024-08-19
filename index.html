@@ -3,47 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conceptos de OOP</title>
+    <title>Paradigmas de la OOP</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
         table {
-            width: 100%;
+            width: 80%;
+            margin: 20px auto;
             border-collapse: collapse;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
         }
         th, td {
             border: 1px solid #dddddd;
             text-align: left;
-            padding: 8px;
+            padding: 12px;
         }
         th {
+            background-color: #666;
+            color: white;
+        }
+        tr:nth-child(even) {
             background-color: #f2f2f2;
+        }
+        tr:nth-child(odd) {
+            background-color: #e6e6e6;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        .concept {
+            font-weight: bold;
+            color: #333;
         }
     </style>
 </head>
 <body>
-    <h1>Conceptos de OOP.</h1>
+    <h1>Conceptos de Programación Orientada a Objetos</h1>
     <table>
         <thead>
             <tr>
                 <th>Concepto</th>
                 <th>Definición</th>
+                <th>Ejemplo</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Encapsulamiento</td>
+                <td class="concept">Encapsulamiento</td>
                 <td>Proceso de ocultar los detalles internos de un objeto y exponer solo lo necesario a través de métodos públicos. Esto ayuda a proteger los datos y a mantener la integridad del objeto.</td>
+                <td>Una clase Persona con atributos privados nombre y edad, y métodos públicos getNombre() y setEdad(int edad). </td>
             </tr>
             <tr>
-                <td>Abstracción</td>
+                <td class="concept">Abstracción</td>
                 <td>Técnica para simplificar la complejidad al modelar clases en términos de sus atributos y comportamientos esenciales, sin incluir los detalles específicos de implementación.</td>
+                <td>Una clase abstracta Animal con métodos abstractos hacerSonido() y moverse(), que son implementados por clases concretas como Perro y Gato.</td>
             </tr>
             <tr>
-                <td>Herencia</td>
+                <td class="concept">Herencia</td>
                 <td>Mecanismo que permite a una clase derivada (o hija) heredar propiedades y métodos de una clase base (o padre), promoviendo la reutilización de código y la creación de jerarquías de clases.</td>
+                <td>Una clase Vehiculo con métodos arrancar() y detener(), de la que heredan clases como Coche y Moto.</td>
             </tr>
             <tr>
-                <td>Polimorfismo</td>
+                <td class="concept">Polimorfismo</td>
                 <td>Capacidad de diferentes clases para ser tratadas como instancias de una misma clase a través de una interfaz común, permitiendo que un mismo método se comporte de manera diferente según el objeto que lo invoque.</td>
+                <td>Una interfaz Figura con un método dibujar(), implementada por clases como Circulo y Rectangulo. Al invocar dibujar() en un objeto Figura, se ejecutará la implementación específica de cada clase.</td>
             </tr>
         </tbody>
     </table>
