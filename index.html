@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paradigmas de la OOP</title>
+    <title>Paradigmas de la OOP.</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,7 +13,7 @@
         }
         h1 {
             text-align: center;
-            color: #333;
+            color: #c272b0;
             margin-top: 20px;
         }
         table {
@@ -21,7 +21,7 @@
             margin: 20px auto;
             border-collapse: collapse;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
+            background-color: #c77fb5;
         }
         th, td {
             border: 1px solid #dddddd;
@@ -45,38 +45,114 @@
             font-weight: bold;
             color: #333;
         }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
     </style>
 </head>
 <body>
-    <h1>Paradigmas de la OOP.</h1>
+    <h1>Paradigmas de la OOP en Python</h1>
     <table>
         <thead>
             <tr>
                 <th>Concepto</th>
                 <th>Definición</th>
-                <th>Ejemplo</th>
+                <th>Ejemplo en Python</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td class="concept">Encapsulamiento</td>
-                <td>Proceso de ocultar los detalles internos de un objeto y exponer solo lo necesario a través de métodos públicos. Esto ayuda a proteger los datos y a mantener la integridad del objeto.</td>
-                <td>Una clase Persona con atributos privados nombre y edad, y métodos públicos getNombre() y setEdad(int edad). </td>
+                <td>Ocultar los detalles internos de un objeto y exponer solo lo necesario.</td>
+                <td>
+                    <pre>
+class Persona:
+    def __init__(self, nombre, edad):
+        self.__nombre = nombre  # Atributo privado
+        self.__edad = edad      # Atributo privado
+
+    def get_nombre(self):
+        return self.__nombre
+
+    def set_edad(self, edad):
+        if edad > 0:
+            self.__edad = edad
+
+persona = Persona("Juan", 30)
+print(persona.get_nombre())  # Imprime: Juan
+persona.set_edad(31)
+                    </pre>
+                </td>
             </tr>
             <tr>
                 <td class="concept">Abstracción</td>
-                <td>Técnica para simplificar la complejidad al modelar clases en términos de sus atributos y comportamientos esenciales, sin incluir los detalles específicos de implementación.</td>
-                <td>Una clase abstracta Animal con métodos abstractos hacerSonido() y moverse(), que son implementados por clases concretas como Perro y Gato.</td>
+                <td>Simplificar la complejidad al enfocarse en los atributos y comportamientos esenciales.</td>
+                <td>
+                    <pre>
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+    @abstractmethod
+    def hacer_sonido(self):
+        pass
+
+class Perro(Animal):
+    def hacer_sonido(self):
+        return "Ladrido"
+
+perro = Perro()
+print(perro.hacer_sonido())  # Imprime: Ladrido
+                    </pre>
+                </td>
             </tr>
             <tr>
                 <td class="concept">Herencia</td>
-                <td>Mecanismo que permite a una clase derivada (o hija) heredar propiedades y métodos de una clase base (o padre), promoviendo la reutilización de código y la creación de jerarquías de clases.</td>
-                <td>Una clase Vehiculo con métodos arrancar() y detener(), de la que heredan clases como Coche y Moto.</td>
+                <td>Permitir que una clase herede propiedades y métodos de otra clase.</td>
+                <td>
+                    <pre>
+class Vehiculo:
+    def arrancar(self):
+        return "El vehículo arranca"
+
+class Coche(Vehiculo):
+    def arrancar(self):
+        return "El coche arranca"
+
+coche = Coche()
+print(coche.arrancar())  # Imprime: El coche arranca
+                    </pre>
+                </td>
             </tr>
             <tr>
                 <td class="concept">Polimorfismo</td>
-                <td>Capacidad de diferentes clases para ser tratadas como instancias de una misma clase a través de una interfaz común, permitiendo que un mismo método se comporte de manera diferente según el objeto que lo invoque.</td>
-                <td>Una interfaz Figura con un método dibujar(), implementada por clases como Circulo y Rectangulo. Al invocar dibujar() en un objeto Figura, se ejecutará la implementación específica de cada clase.</td>
+                <td>Permitir que un método se comporte de manera diferente según el objeto que lo invoque.</td>
+                <td>
+                    <pre>
+class Figura:
+    def dibujar(self):
+        pass
+
+class Circulo(Figura):
+    def dibujar(self):
+        return "Dibujando un círculo"
+
+class Rectangulo(Figura):
+    def dibujar(self):
+        return "Dibujando un rectángulo"
+
+def dibujar_figura(figura):
+    print(figura.dibujar())
+
+circulo = Circulo()
+rectangulo = Rectangulo()
+
+dibujar_figura(circulo)       # Imprime: Dibujando un círculo
+dibujar_figura(rectangulo)    # Imprime: Dibujando un rectángulo
+                    </pre>
+                </td>
             </tr>
         </tbody>
     </table>
